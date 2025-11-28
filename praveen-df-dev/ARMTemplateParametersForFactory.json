@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "praveen-df-dev"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"lnk_adls_accountKey": {
+			"value": ""
+		},
+		"lnk_azuresql_password": {
+			"value": ""
+		},
+		"praveenAzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://praveenreddydatalakedeb.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://praveenreddydatalakedeb.dfs.core.windows.net/"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "praveenreddy"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "praveen"
+		},
+		"lnk_adls_properties_typeProperties_url": {
+			"value": "https://praveenreddydatalakedeb.dfs.core.windows.net/"
+		},
+		"lnk_azuresql_properties_typeProperties_server": {
+			"value": "testserverdeb.database.windows.net"
+		},
+		"lnk_azuresql_properties_typeProperties_database": {
+			"value": "praveendev"
+		},
+		"lnk_azuresql_properties_typeProperties_userName": {
+			"value": "praveenreddy"
+		}
+	}
+}
