@@ -1,0 +1,103 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Json6",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable5",
+						"type": "DatasetReference"
+					},
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "lnk_adls",
+						"type": "LinkedServiceReference"
+					}
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatten1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          employeeId as string,",
+				"          name as (first as string, last as string),",
+				"          contact as (email as string, phones as (type as string, number as string)[], address as (line1 as string, line2 as string, city as string, pincode as string)),",
+				"          skills as string[],",
+				"          projects as (projectId as string, name as string, role as string, technologies as string[], tasks as (taskId as string, description as string, status as string)[])[],",
+				"          audit as (createdOn as string, modifiedOn as string, createdBy as string)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'arrayOfDocuments',",
+				"     partitionBy('hash', 1)) ~> source1",
+				"source1 foldDown(unrollMultiple(contact.phones,skills,projects,projects.technologies,projects.tasks),",
+				"     mapColumn(",
+				"          employeeId,",
+				"          {name.first} = name.first,",
+				"          {name.last} = name.last,",
+				"          email = contact.email,",
+				"          {address.line1} = contact.address.line1,",
+				"          {address.line2} = contact.address.line2,",
+				"          city = contact.address.city,",
+				"          pincode = contact.address.pincode,",
+				"          createdOn = audit.createdOn,",
+				"          modifiedOn = audit.modifiedOn,",
+				"          createdBy = audit.createdBy",
+				"     ),",
+				"     partitionBy('hash', 1),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> flatten1",
+				"flatten1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          EmployeeId as string,",
+				"          FirstName as string,",
+				"          LastName as string,",
+				"          Email as string,",
+				"          AddressLine1 as string,",
+				"          AddressLine2 as string,",
+				"          City as string,",
+				"          Pincode as string,",
+				"          CreatedOn as timestamp,",
+				"          ModifiedOn as timestamp,",
+				"          CreatedBy as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          EmployeeId = employeeId,",
+				"          FirstName = {name.first},",
+				"          LastName = {name.last},",
+				"          Email = email,",
+				"          AddressLine1 = {address.line1},",
+				"          AddressLine2 = {address.line2},",
+				"          City = city,",
+				"          Pincode = pincode,",
+				"          CreatedOn = createdOn,",
+				"          ModifiedOn = modifiedOn,",
+				"          CreatedBy = createdBy",
+				"     )) ~> sink1"
+			]
+		}
+	}
+}

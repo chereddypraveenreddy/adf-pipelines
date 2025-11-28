@@ -1,0 +1,43 @@
+{
+	"name": "sink_hr",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ShiftID",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "StartTime",
+				"type": "time",
+				"scale": 7
+			},
+			{
+				"name": "EndTime",
+				"type": "time",
+				"scale": 7
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "HumanResources",
+			"table": "Shift"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

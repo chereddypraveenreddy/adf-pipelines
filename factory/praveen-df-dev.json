@@ -1,0 +1,9 @@
+{
+	"name": "praveen-df-dev",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "81311717-c6d3-4614-874d-6b8e9de7bf19",
+		"tenantId": "e5e76c11-7bd2-4b5f-b9e4-733bfc1eb6e3"
+	}
+}

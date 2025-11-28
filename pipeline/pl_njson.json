@@ -1,0 +1,200 @@
+{
+	"name": "pl_njson",
+	"properties": {
+		"activities": [
+			{
+				"name": "njson",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['employeeId']"
+								},
+								"sink": {
+									"name": "EmployeeId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['name']['first']"
+								},
+								"sink": {
+									"name": "FirstName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['name']['last']"
+								},
+								"sink": {
+									"name": "LastName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['contact']['email']"
+								},
+								"sink": {
+									"name": "Email",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['contact']['address']['line1']"
+								},
+								"sink": {
+									"name": "AddressLine1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['contact']['address']['line2']"
+								},
+								"sink": {
+									"name": "AddressLine2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['contact']['address']['city']"
+								},
+								"sink": {
+									"name": "City",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['contact']['address']['pincode']"
+								},
+								"sink": {
+									"name": "Pincode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['contact']['phones'][0]['type']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['contact']['phones'][0]['number']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['skills'][0]"
+								}
+							},
+							{
+								"source": {
+									"path": "$['projects'][0]['projectId']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['projects'][0]['name']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['projects'][0]['role']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['projects'][0]['technologies'][0]"
+								}
+							},
+							{
+								"source": {
+									"path": "$['projects'][0]['tasks'][0]['taskId']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['projects'][0]['tasks'][0]['description']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['projects'][0]['tasks'][0]['status']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['audit']['createdOn']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['audit']['modifiedOn']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['audit']['createdBy']"
+								}
+							}
+						],
+						"mapComplexValuesToString": false
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "nJson3",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "sink_ds_njson_sql",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "praveendev"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-11-21T10:23:20Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
