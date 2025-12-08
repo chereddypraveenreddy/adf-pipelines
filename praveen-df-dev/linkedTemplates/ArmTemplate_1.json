@@ -13,6 +13,81 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable8')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_azuresql",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "SpecialOfferID",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Description",
+						"type": "varchar"
+					},
+					{
+						"name": "DiscountPct",
+						"type": "decimal",
+						"precision": 19,
+						"scale": 4
+					},
+					{
+						"name": "Type",
+						"type": "varchar"
+					},
+					{
+						"name": "Category",
+						"type": "varchar"
+					},
+					{
+						"name": "StartDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "EndDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					},
+					{
+						"name": "MinQty",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "MaxQty",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "rowguid",
+						"type": "varchar"
+					},
+					{
+						"name": "ModifiedDate",
+						"type": "datetime",
+						"precision": 23,
+						"scale": 3
+					}
+				],
+				"typeProperties": {
+					"schema": "Sales",
+					"table": "SpecialOffer"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlTable9')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -767,7 +842,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText3')]",
+			"name": "[concat(parameters('factoryName'), '/DelimitedText24')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -775,99 +850,69 @@
 					"referenceName": "lnk_adls",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "date",
-						"fileSystem": "praveenreddy-container-dev"
+				"parameters": {
+					"filename": {
+						"type": "string"
 					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText4')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_adls",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "HumanResources_EmployeePayHistory.csv",
-						"folderPath": "data",
-						"fileSystem": "praveenreddy-container-dev"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/DelimitedText5')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_adls",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "Sales_Store.csv",
-						"folderPath": "data",
-						"fileSystem": "praveenreddy-container-dev"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "BusinessEntityID",
-						"type": "String"
-					},
-					{
-						"name": "Name",
-						"type": "String"
-					},
-					{
-						"name": "SalesPersonID",
-						"type": "String"
-					},
-					{
-						"name": "Demographics",
-						"type": "String"
-					},
-					{
-						"name": "rowguid",
-						"type": "String"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "String"
+					"datefolder": {
+						"type": "string"
 					}
-				]
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().filename",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@dataset().datefolder",
+							"type": "Expression"
+						},
+						"fileSystem": "praveenreddy-container-dev"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText25')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_adls",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"folderdate": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"folderPath": {
+							"value": "@dataset().folderdate",
+							"type": "Expression"
+						},
+						"fileSystem": "praveenreddy-container-dev"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
 			},
 			"dependsOn": []
 		}
