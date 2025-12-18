@@ -5,13 +5,13 @@
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"server": "testserverdeb.database.windows.net",
-			"database": "praveendev",
-			"encrypt": "mandatory",
+			"server": "praveenreddy.database.windows.net",
+			"database": "reddy_db",
+			"encrypt": "optional",
 			"trustServerCertificate": true,
 			"authenticationType": "SQL",
-			"userName": "praveenreddy",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEQ3RUFDNDk0LTM2RjgtNEVDQS1BMTI5LURBN0E3OERERTFCNl84YWY0NGU0ZS1lZDMyLTQ1ZWQtOTQ5MC00MjUwNzdkZTg2MTciDQp9"
+			"userName": "praveen_admin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEM4NjkyODA2LTFCMTktNDg1NC05RkE3LTU5MjlDNThCQzhFMl9jZDU3ZmUxOS0wOWQ1LTRhOGItYWVhYS0yNmI2MDU3NGM1MDciDQp9"
 		}
 	}
 }
