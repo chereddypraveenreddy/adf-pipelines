@@ -12,10 +12,6 @@
 			"authenticationType": "SQL",
 			"userName": "praveen",
 			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2ODM2MzdlZS0xNjU4LTQ0MWMtYTZiYy0yYzA1OGZlYzc4YjgiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
-		},
-		"connectVia": {
-			"referenceName": "integrationRuntime1",
-			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
