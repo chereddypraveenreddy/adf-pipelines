@@ -1,0 +1,9 @@
+{
+	"name": "praveenkumardev",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "99ea8cdf-b961-4fcf-bb76-2a8033914432",
+		"tenantId": "74be3a9a-7456-41fc-8ce9-661ff821bd1f"
+	}
+}
