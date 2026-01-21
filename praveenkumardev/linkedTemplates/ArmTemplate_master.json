@@ -1,0 +1,390 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "praveenkumardev"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
+		"kumar_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'kumar'"
+		},
+		"kumar1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'kumar1'"
+		},
+		"lnk_adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'lnk_adls'"
+		},
+		"lnk_azuresql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lnk_azuresql'"
+		},
+		"onprem_sql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'onprem_sql'"
+		},
+		"praveenAzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'praveenAzureBlobStorage1'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://praveenreddydatalakedeb.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://praveen-key.vault.azure.net/"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "praveenreddy"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "praveen"
+		},
+		"kumar_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://praveenkumar.dfs.core.windows.net/"
+		},
+		"kumar1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "praveen-sql.database.windows.net"
+		},
+		"kumar1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "praveenkumar"
+		},
+		"kumar1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "praveenreddy_adf"
+		},
+		"lnk_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://praveenlakedev.dfs.core.windows.net/"
+		},
+		"lnk_azuresql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "praveenreddy.database.windows.net"
+		},
+		"lnk_azuresql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "reddy_db"
+		},
+		"lnk_azuresql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "praveen_admin"
+		},
+		"onprem_sql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "praveenreddy"
+		},
+		"onprem_sql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"onprem_sql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "praveen1"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "praveenkumardev_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"SqlServer1_password": {
+						"value": "[parameters('SqlServer1_password')]"
+					},
+					"kumar_accountKey": {
+						"value": "[parameters('kumar_accountKey')]"
+					},
+					"kumar1_password": {
+						"value": "[parameters('kumar1_password')]"
+					},
+					"lnk_adls_accountKey": {
+						"value": "[parameters('lnk_adls_accountKey')]"
+					},
+					"lnk_azuresql_password": {
+						"value": "[parameters('lnk_azuresql_password')]"
+					},
+					"praveenAzureBlobStorage1_connectionString": {
+						"value": "[parameters('praveenAzureBlobStorage1_connectionString')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"SqlServer1_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_server')]"
+					},
+					"SqlServer1_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_database')]"
+					},
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
+					},
+					"kumar_properties_typeProperties_url": {
+						"value": "[parameters('kumar_properties_typeProperties_url')]"
+					},
+					"kumar1_properties_typeProperties_server": {
+						"value": "[parameters('kumar1_properties_typeProperties_server')]"
+					},
+					"kumar1_properties_typeProperties_database": {
+						"value": "[parameters('kumar1_properties_typeProperties_database')]"
+					},
+					"kumar1_properties_typeProperties_userName": {
+						"value": "[parameters('kumar1_properties_typeProperties_userName')]"
+					},
+					"lnk_adls_properties_typeProperties_url": {
+						"value": "[parameters('lnk_adls_properties_typeProperties_url')]"
+					},
+					"lnk_azuresql_properties_typeProperties_server": {
+						"value": "[parameters('lnk_azuresql_properties_typeProperties_server')]"
+					},
+					"lnk_azuresql_properties_typeProperties_database": {
+						"value": "[parameters('lnk_azuresql_properties_typeProperties_database')]"
+					},
+					"lnk_azuresql_properties_typeProperties_userName": {
+						"value": "[parameters('lnk_azuresql_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "praveenkumardev_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'praveenkumardev_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "praveenkumardev_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'praveenkumardev_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "praveenkumardev_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'praveenkumardev_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "praveenkumardev_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'praveenkumardev_ArmTemplate_3')]"
+			]
+		},
+		{
+			"name": "praveenkumardev_ArmTemplate_5",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_5.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'praveenkumardev_ArmTemplate_4')]"
+			]
+		},
+		{
+			"name": "praveenkumardev_ArmTemplate_6",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_6.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'praveenkumardev_ArmTemplate_5')]"
+			]
+		},
+		{
+			"name": "praveenkumardev_ArmTemplate_7",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_7.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"onprem_sql_password": {
+						"value": "[parameters('onprem_sql_password')]"
+					},
+					"onprem_sql_properties_typeProperties_server": {
+						"value": "[parameters('onprem_sql_properties_typeProperties_server')]"
+					},
+					"onprem_sql_properties_typeProperties_database": {
+						"value": "[parameters('onprem_sql_properties_typeProperties_database')]"
+					},
+					"onprem_sql_properties_typeProperties_userName": {
+						"value": "[parameters('onprem_sql_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'praveenkumardev_ArmTemplate_6')]"
+			]
+		},
+		{
+			"name": "praveenkumardev_ArmTemplate_8",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_8.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'praveenkumardev_ArmTemplate_7')]"
+			]
+		},
+		{
+			"name": "praveenkumardev_ArmTemplate_9",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_9.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'praveenkumardev_ArmTemplate_8')]"
+			]
+		}
+	]
+}

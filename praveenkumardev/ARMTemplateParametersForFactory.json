@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "praveenkumardev"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"kumar_accountKey": {
+			"value": ""
+		},
+		"kumar1_password": {
+			"value": ""
+		},
+		"lnk_adls_accountKey": {
+			"value": ""
+		},
+		"lnk_azuresql_password": {
+			"value": ""
+		},
+		"onprem_sql_password": {
+			"value": ""
+		},
+		"praveenAzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://praveenreddydatalakedeb.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://praveen-key.vault.azure.net/"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "praveenreddy"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "praveen"
+		},
+		"kumar_properties_typeProperties_url": {
+			"value": "https://praveenkumar.dfs.core.windows.net/"
+		},
+		"kumar1_properties_typeProperties_server": {
+			"value": "praveen-sql.database.windows.net"
+		},
+		"kumar1_properties_typeProperties_database": {
+			"value": "praveenkumar"
+		},
+		"kumar1_properties_typeProperties_userName": {
+			"value": "praveenreddy_adf"
+		},
+		"lnk_adls_properties_typeProperties_url": {
+			"value": "https://praveenlakedev.dfs.core.windows.net/"
+		},
+		"lnk_azuresql_properties_typeProperties_server": {
+			"value": "praveenreddy.database.windows.net"
+		},
+		"lnk_azuresql_properties_typeProperties_database": {
+			"value": "reddy_db"
+		},
+		"lnk_azuresql_properties_typeProperties_userName": {
+			"value": "praveen_admin"
+		},
+		"onprem_sql_properties_typeProperties_server": {
+			"value": "praveenreddy"
+		},
+		"onprem_sql_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"onprem_sql_properties_typeProperties_userName": {
+			"value": "praveen1"
+		}
+	}
+}
