@@ -33,7 +33,7 @@
 			"value": "https://praveenreddydatalakedeb.dfs.core.windows.net/"
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
-			"value": "https://praveen-key.vault.azure.net/"
+			"value": "https://praveenkumar.vault.azure.net/"
 		},
 		"SqlServer1_properties_typeProperties_server": {
 			"value": "praveenreddy"

@@ -45,7 +45,7 @@
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"type": "string",
-			"defaultValue": "https://praveen-key.vault.azure.net/"
+			"defaultValue": "https://praveenkumar.vault.azure.net/"
 		},
 		"SqlServer1_properties_typeProperties_server": {
 			"type": "string",
