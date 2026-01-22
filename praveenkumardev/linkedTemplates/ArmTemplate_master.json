@@ -31,10 +31,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'lnk_azuresql'"
 		},
-		"onprem_sql_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'onprem_sql'"
-		},
 		"praveenAzureBlobStorage1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'praveenAzureBlobStorage1'"
@@ -90,18 +86,6 @@
 		"lnk_azuresql_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "praveen_admin"
-		},
-		"onprem_sql_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "praveenreddy"
-		},
-		"onprem_sql_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "AdventureWorks2022"
-		},
-		"onprem_sql_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "praveen1"
 		},
 		"containerUri": {
 			"type": "string",
@@ -327,18 +311,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"onprem_sql_password": {
-						"value": "[parameters('onprem_sql_password')]"
-					},
-					"onprem_sql_properties_typeProperties_server": {
-						"value": "[parameters('onprem_sql_properties_typeProperties_server')]"
-					},
-					"onprem_sql_properties_typeProperties_database": {
-						"value": "[parameters('onprem_sql_properties_typeProperties_database')]"
-					},
-					"onprem_sql_properties_typeProperties_userName": {
-						"value": "[parameters('onprem_sql_properties_typeProperties_userName')]"
 					}
 				}
 			},

@@ -23,9 +23,6 @@
 		"lnk_azuresql_password": {
 			"value": ""
 		},
-		"onprem_sql_password": {
-			"value": ""
-		},
 		"praveenAzureBlobStorage1_connectionString": {
 			"value": ""
 		},
@@ -67,15 +64,6 @@
 		},
 		"lnk_azuresql_properties_typeProperties_userName": {
 			"value": "praveen_admin"
-		},
-		"onprem_sql_properties_typeProperties_server": {
-			"value": "praveenreddy"
-		},
-		"onprem_sql_properties_typeProperties_database": {
-			"value": "AdventureWorks2022"
-		},
-		"onprem_sql_properties_typeProperties_userName": {
-			"value": "praveen1"
 		},
 		"containerUri": {
 			"value": ""
