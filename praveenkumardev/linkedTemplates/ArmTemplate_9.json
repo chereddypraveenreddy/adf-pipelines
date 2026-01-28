@@ -955,6 +955,35 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/dataflow7')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/hr_trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "multiple hr files",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 10,
+						"startTime": "2026-01-28T06:01:00",
+						"endTime": "2026-01-29T06:01:00",
+						"timeZone": "India Standard Time"
+					}
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }
