@@ -1,0 +1,25 @@
+{
+	"name": "production_trigger1",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "muultiple_production_files",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2026-01-28T06:26:00",
+				"endTime": "2026-01-29T06:26:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
