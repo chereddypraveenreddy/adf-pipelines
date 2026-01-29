@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://api.github.com/users/chereddypraveenreddy/repos/chereddypraveenreddy/praveen/git/trees/main/",
+			"url": "https://raw.githubusercontent.com/chereddypraveenreddy/praveen/refs/heads/main/",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
